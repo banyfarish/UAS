@@ -9,6 +9,6 @@ $factory->define(Articles::class, function (Faker $faker) {
     return [
         'title' => $faker->sentence(),
         'content' => $faker->realText(2000),
-        'featured_image' => $faker->imageurl(750, 300, 'cats', true)
+        'featured_image' => $faker->imageurl(750, 300, true)
     ];
 });

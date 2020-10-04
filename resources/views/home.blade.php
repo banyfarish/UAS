@@ -9,14 +9,12 @@
   
   <div class="col-md-8">
     
-    <h1 class="my-4">Slam Dunk : 
-      <small>Karakter Pemain Tim Shohoku</small>
-    </h1>
+    <h1 class="my-4">Karakter Pemain Tim Shohoku</h1>
 
     @foreach($articlesAll as $art)
     <!-- Blog Post -->
     <div class="card mb-4">
-      <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+    <img class="card-img-top" src={{$art->featured_image}} width="750px" height="300px" alt="Card image cap">
       <div class="card-body">
         <h2 class="card-title">{{$art->title}}</h2>
         <p class="card-text">{{ Str::limit($art->content, 100,'...') }}</p>
@@ -65,26 +63,23 @@
           <div class="col-lg-6">
             <ul class="list-unstyled mb-0">
               <li>
-                <a href="#">Web Design</a>
+                <a href="#">Kainan</a>
               </li>
               <li>
-                <a href="#">HTML</a>
+                <a href="#">Shoyo</a>
               </li>
               <li>
-                <a href="#">Freebies</a>
+                <a href="#">Meihou</a>
               </li>
             </ul>
           </div>
           <div class="col-lg-6">
             <ul class="list-unstyled mb-0">
               <li>
-                <a href="#">JavaScript</a>
+                <a href="#">Ryounan</a>
               </li>
               <li>
-                <a href="#">CSS</a>
-              </li>
-              <li>
-                <a href="#">Tutorials</a>
+                <a href="#">Sannoh</a>
               </li>
             </ul>
           </div>
@@ -94,10 +89,12 @@
 
     <!-- Side Widget -->
     <div class="card my-4">
-      <h5 class="card-header">Side Widget</h5>
+      <h5 class="card-header">Slam Dunk</h5>
       <div class="card-body">
-        You can put anything you want inside of these side widgets. They are easy to use, 
-        and feature the new Bootstrap 4 card containers!
+      The manga and anime series Slam Dunk features a cast of 
+      fictional characters created by Takehiko Inoue. The series 
+      takes place in Japan, with the main characters being high school 
+      basketball players from Kanagawa Prefecture.
       </div>
     </div>
 

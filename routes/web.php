@@ -23,4 +23,7 @@ route::get('/about','aboutController@about');
 
 route::get('/articles/{id}','ArticlesController');
 
+route::get('/contact','contactController@contact');
+
+
 //route::get('/','artciles2Controller@home');

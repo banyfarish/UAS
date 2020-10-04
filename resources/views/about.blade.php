@@ -8,7 +8,7 @@
       <div class="col-lg-12">
 
         <!-- Title -->
-        <h1 class="mt-4">Post Title</h1>
+        <h1 class="mt-4">Tentang Author</h1>
 
         <!-- Author -->
         <p class="lead">
@@ -19,32 +19,33 @@
         <hr>
 
         <!-- Date/Time -->
-        <p>Posted on January 1, 2019 at 12:00 PM</p>
+        <p>Posted on october 3, 2020 at 12:00 PM</p>
 
         <hr>
 
         <!-- Preview Image -->
-        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+        <img class="card-img-top" src="{{ ('https://1.bp.blogspot.com/-YmHofGl1x6Y/X24T0C-D-gI/AAAAAAAAG2M/wzDmMykFBMwVPitScjOO-0hsFzNnIq9kwCLcBGAsYHQ/s320/baiq.jpeg') }}" 
+        style="width:500px;height:400px;">
+        
+        
 
         <hr>
 
         <!-- Post Content -->
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
-
         <blockquote class="blockquote">
-          <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-          <footer class="blockquote-footer">Someone famous in
-            <cite title="Source Title">Source Title</cite>
+          <p class="mb-0">Hi, salam kenal.</p>
+          <footer class="blockquote-footer">Baiq Fangs
+            <cite title="Source Title">Banyalvarez56@gmail.com</cite>
           </footer>
         </blockquote>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
+        <p>perkenalkan nama saya bany faris hanafi bisa dipanggil bany bisa juga baiq. saya lahir di Sumenep pada 02 februari 2001. bagi yang belum
+        tau sumenep ini salah satu kota yang berda di ujung timur pulau madura. hobi saya yaitu sih untuk sementara ini masih basket gatau besoknya 
+        apa mau ganti hobi atau enggak </p>
+        <p>Untuk umur, saya masih berumur 19 tahun dan saya berkuliah di polinema yaitu politeknik negeri malang. Jurusan saya itu adalah sisstem informasi 
+        dengan berprodi D3 Manajemen Informatika. Untuk tempat tinggal saat ini saya mengontrak sebuah rumah dengan teman sekampung. </p>
+        <P>dan jika anda ingin mengetahui saya lebih lanjut bisa anda main-main ke akun sosial media saya yang bisa anda kunjungi di contact</P>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
 
         <hr>
 
@@ -62,40 +63,15 @@
         </div>
 
         <!-- Single Comment -->
+        @foreach($komentarAll as $com)
         <div class="media mb-4">
-          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+          <img class="d-flex mr-3 rounded-circle" src={{$com->featured_image}} alt="">
           <div class="media-body">
-            <h5 class="mt-0">Commenter Name</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            <h5 class="mt-0">{{$com->name}}</h5>
+            {{$com->content}}
           </div>
         </div>
-
-        <!-- Comment with nested comments -->
-        <div class="media mb-4">
-          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-          <div class="media-body">
-            <h5 class="mt-0">Commenter Name</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-            <div class="media mt-4">
-              <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-              <div class="media-body">
-                <h5 class="mt-0">Commenter Name</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-              </div>
-            </div>
-
-            <div class="media mt-4">
-              <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-              <div class="media-body">
-                <h5 class="mt-0">Commenter Name</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-              </div>
-            </div>
-
-          </div>
-        </div>
-
+        @endforeach
       </div>
 
     </div>
