@@ -17,13 +17,15 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/about','AboutController@about' );
 //Route::get('articles/{id}','Articleontrollerr@articles{id}');
 
-route::get('/','HomeController@home');
+//route::get('/','HomeController@home');
 
-route::get('/about','aboutController@about');
+route::get('/about','aboutController@index');
 
-route::get('/articles/{id}','ArticlesController');
+route::get('/articles/{id}','ArticlesController@index');
 
-route::get('/contact','contactController@contact');
+route::get('/contact','contactController@index');
 
-
-//route::get('/','artciles2Controller@home');
+Route::get('/', 'HomeController@index');
+Route::get('/home1', 'HomeController1@index'); 
+Auth::routes();
+route::get('/home','HomeController@index')->name('home');
