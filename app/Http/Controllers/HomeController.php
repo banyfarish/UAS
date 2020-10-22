@@ -25,12 +25,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $articlesAll = articles::All();
+        $articles= json_decode(json_encode($articlesAll));
+        return view('home')->with(compact('articlesAll'));
             Cache::remember('articles', 5, function(){
                 return Articles::all();
     
-        });
-            $articles = Cache::get('articles');
-            return view('Home1')->with(compact('articles'));
-        
+        });        
     }
 }
