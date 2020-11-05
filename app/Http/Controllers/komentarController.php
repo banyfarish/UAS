@@ -59,4 +59,8 @@ class komentarController extends Controller
         return redirect('/manage2');
 
     }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 }

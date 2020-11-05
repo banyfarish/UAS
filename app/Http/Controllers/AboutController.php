@@ -10,13 +10,13 @@ class AboutController extends Controller
         $komentarAll = komentar::All();
         $komentarAll= json_decode(json_encode($komentarAll));
         return view('about')->with(compact('komentarAll'));
-
-         $value = Cache::rememberForever('articles', function(){
-            return \app\articles::all();
-        });
-
+        
         $value = Cache::rememberForever('komentar', function(){
             return \app\komentar::all();
         });
+    }
+    public function __construct()
+    {
+         $this->middleware('auth');
     }
 }

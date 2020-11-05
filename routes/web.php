@@ -25,14 +25,20 @@ Auth::routes();
 
 Route::get('/manage', 'ArticlesController@index')->name('manage');
 Route::get('/manage2', 'komentarController@index')->name('manage2');
+Route::get('/manage3', 'userController@index')->name('manage3');
 
 Route::get('/articles/add', 'ArticlesController@add');
 Route::get('/komentar/add2', 'komentarController@add2');
+Route::get('/user/add3', 'userController@add3');
 Route::post('/articles/create', 'ArticlesController@create');
 Route::post('/komentar/create2', 'komentarController@create2');
+Route::post('/user/create3', 'userController@create3');
 Route::get('/articles/edit/{id}', 'ArticlesController@edit');
 Route::get('/komentar/edit2/{id}', 'komentarController@edit2');
+Route::get('/user/edit3/{id}', 'userController@edit3');
 Route::post('/articles/update/{id}','ArticlesController@update');
 Route::post('/komentar/update2/{id}', 'komentarController@update2');
+Route::post('/user/update3/{id}', 'userController@update3');
 Route::get('/articles/delete/{id}','ArticlesController@delete');
 Route::get('/komentar/delete2/{id}', 'komentarController@delete2');
+Route::get('/user/delete3/{id}', 'userController@delete3');

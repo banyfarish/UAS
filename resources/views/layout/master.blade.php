@@ -47,18 +47,24 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/">Home
-              <span class="sr-only">(current)</span>
-            </a>
+          @can('user-display')
+            <a class="nav-link" href="">Home</a>
+              @endcan
           </li>
           <li class="nav-item">
+          @can('user-display')
             <a class="nav-link" href="/about">About</a>
+            @endcan
           </li>
           <li class="nav-item">
+            @can('manage-articles')
             <a class="nav-link" href="/manage">Manage</a>
+            @endcan
           </li>
           <li class="nav-item">
+          @can('user-display')
             <a class="nav-link" href="/contact">Contact</a>
+            @endcan
           </li>
           <li class="nav-item dropdown">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

@@ -10,4 +10,8 @@ class contactController extends Controller
 
         return view('contact');
     }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 }

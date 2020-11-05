@@ -1,48 +1,37 @@
 @extends('layout.master')  
 @section('content')
 <div class="container">
-<br><br>
-<div class="row">
-
-  <!-- Articles -->
+  <br><br><br>
+  <div class="row">
     <div class="col-md-8">
         <div class="card">
-        <div class="card-header text-center">
-            <h3>List Of All Articles</h3>
+            <div class="card-header text-center">
+            <h3>List Of All User</h3>
+            </div>
+            </br></br>
+            <form action="/user/create3" method="post">
+            @csrf
+                <div class="form-group">
+                    <label for="name">name</label>
+                    <input type="text" class="form-control" required="required" name="name"></br>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" required="required" name="email"></br>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="text" class="form-control" required="required" name="password"></br>
+                </div>
+                <div class="form-group">
+                    <label for="roles">Roles</label>
+                    <input type="text" class="form-control" required="required" name="roles"></br>
+                </div>
+                <button type="submit" name="add" class="btn btn-primary float-right">Tambah Data</button>
+            </form>
+            </br></br>        
         </div>
-        <a href="articles/add" class="btn btn-primary">Add Data</a>
-        </br>
-        <div class="card body">
-        <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Judul</th>
-                    <th>Tanggal</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($articles as $a)
-                <tr>
-                    <td>{{$a->id}}</td>
-                    <td>{{$a->title}}</td>
-                    <td>{{$a->created_at}}</td>
-                    <td>
-                        <a href="articles/edit/{{$a->id}}" class="badge badge-warning">Edit</a>
-                        <a href="articles/delete/{{$a->id}}" class="badge badge-danger">hapus</a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-        
-      </div>
-      </br></br></br>
-      <a href="/manage2" class="btn btn-primary">Click To Show Editing Comment </a>
-      </br></br>
-      <a href="/manage3" class="btn btn-primary">Click To Show Editing Users </a>
-  </div>
-</div>
+    </div>
 
 
 <!-- Sidebar Widgets Column -->
@@ -103,12 +92,10 @@
   basketball players from Kanagawa Prefecture.
   </div>
 </div>
-
 </div>
-
 </div>
-<!-- /.row -->
-
+</div>
+</div>
 </div>
 <!-- /.container -->
 @endsection

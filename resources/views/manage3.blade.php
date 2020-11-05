@@ -8,40 +8,36 @@
     <div class="col-md-8">
         <div class="card">
         <div class="card-header text-center">
-            <h3>List Of All Articles</h3>
+            <h3>List Of All Users</h3>
         </div>
-        <a href="articles/add" class="btn btn-primary">Add Data</a>
+        <a href="user/add3" class="btn btn-primary">Add Data</a>
         </br>
         <div class="card body">
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>No</th>
-                    <th>Judul</th>
-                    <th>Tanggal</th>
+                    <th>name</th>
+                    <th>email</th>
+                    <th>roles</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($articles as $a)
+                @foreach($user as $c)
                 <tr>
-                    <td>{{$a->id}}</td>
-                    <td>{{$a->title}}</td>
-                    <td>{{$a->created_at}}</td>
+                    <td>{{$c->name}}</td>
+                    <td>{{$c->email}}</td>
+                    <td>{{$c->roles}}</td>
                     <td>
-                        <a href="articles/edit/{{$a->id}}" class="badge badge-warning">Edit</a>
-                        <a href="articles/delete/{{$a->id}}" class="badge badge-danger">hapus</a>
+                        <a href="user/edit3/{{$c->id}}" class="badge badge-warning">Edit</a>
+                        <a href="user/delete3/{{$c->id}}" class="badge badge-danger">hapus</a>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
-        
-      </div>
-      </br></br></br>
-      <a href="/manage2" class="btn btn-primary">Click To Show Editing Comment </a>
-      </br></br>
-      <a href="/manage3" class="btn btn-primary">Click To Show Editing Users </a>
-  </div>
+
+        </div>
+    </div>
 </div>
 
 
