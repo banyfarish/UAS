@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('', 'HomeController@index')->name('home');
 Route::get('/about', 'AboutController@about');
-route::get('/articles/{id}','ArticlesController');
+//route::get('/articles/{id}','ArticlesController');
 Route::get('/contact', 'ContactController@contact'); 
 Auth::routes();
 
@@ -42,3 +42,5 @@ Route::post('/user/update3/{id}', 'userController@update3');
 Route::get('/articles/delete/{id}','ArticlesController@delete');
 Route::get('/komentar/delete2/{id}', 'komentarController@delete2');
 Route::get('/user/delete3/{id}', 'userController@delete3');
+
+Route::get('/articles/cetak_pdf', 'ArticlesController@cetak_pdf');

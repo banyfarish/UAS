@@ -9,23 +9,25 @@
             <h3>List Of All Articles</h3>
             </div>
             </br></br>
-            <form action="/articles/update/{{$articles->id}}" method="post">
-            {{csrf_field()}}
-            <input type="hidden" name="id" value="{{$articles->id}}"></br>
-                <div class="form-group">
-                    <label for="title">Judul</label>
-                    <input type="text" class="form-control" required="required" name="title" value="{{$articles->title}}"></br>
-                </div>
-                <div class="form-group">
-                    <label for="content">Content</label>
-                    <input type="text" class="form-control" required="required" name="content" value="{{$articles->content}}"></br>
-                </div>
-                <div class="form-group">
-                    <label for="image">Featured Image</label>
-                    <input type="text" class="form-control" required="required" name="image" value="{{$articles->featured_image}}"></br>
-                </div>
-                <button type="submit" name="edit" class="btn btn-primary float-right">Ubah Data</button>
-            </form>
+            <img width="150px" src="{{asset('storage/'.$article->featured_image)}}">
+            <form action="/articles/update/{{$articles->id}}" method="post"enctype="multipart/form-data">
+              @csrf
+              <input type="hidden" name="id" value="{{$article->id}}"></br>
+              <div class="form-group">
+                <label for="title">Judul</label>
+                <input type="text" class="form-control" required="required" name="title" value="{{$articles->title}}"></br>
+              </div>
+              <div class="form-group">
+                <label for="content">Content</label>
+                <input type="text" class="form-control" required="required" name="content" value="{{$articles->content}}"></br>
+              </div>
+              <div class="form-group">
+              <label for="image">Feature Image</label>
+              <input type="file" class="form-control" required="required" name="image" value="{{$articles->featured_image}}"></br>
+              <img width="150px" src="{{asset('storage/'.$articles->featured_image)}}">
+              </div>
+              <button type="submit" name="edit" class="btn btn-primary floatright">Ubah Data</button>
+              </form>
             </br></br>        
         </div>
     </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Articles;
 use Illuminate\Support\Facades\Gate;
+use PDF;
 class articlesController extends Controller
 {
     public function __invoke($id){
@@ -30,13 +31,17 @@ class articlesController extends Controller
     
     public function create(Request $request)
     {
+        if ($request->file('image')){
+            $image_name = $request->file('image')->store('images','public');
+        }
         Articles::create([
             'title' => $request->title,
             'content' => $request->content,
-            'featured_image' =>$request->image
+            'featured_image' => $image_name,
         ]);
-    return redirect('/manage');
+        return redirect('/manage');
     }
+       
 
     public function edit($id)
     {
@@ -46,12 +51,17 @@ class articlesController extends Controller
 
     public function update($id, Request $request)
     {
-        $articles = articles::find($id);
-        $articles->title=$request->title;
-        $articles->content=$request->content;
-        $articles->featured_image=$request->image;
+        $articles = Articles::find($id);
+        $articles->title = $request->title;
+        $articles->content = $request->content;
+        if($article->featured_image && file_exists(storage_path('app/public/' . $articles->featured_image)))
+        {
+        \Storage::delete('public/'.$articles->featured_image);
+        }
+        $image_name = $request->file('image')->store('images', 'public');
+        $articles->featured_image = $image_name;
         $articles->save();
-        return redirect('/manage');
+        return redirect('/manage');       
     }
 
     public function delete($id)
@@ -70,4 +80,10 @@ class articlesController extends Controller
          });
            
     }
+    public function cetak_pdf(){
+        $articles = Articles::all();
+        $pdf = PDF::loadview('articles_pdf',['articles'=>$articles]);
+        return $pdf->stream();
+       }
+       
 }

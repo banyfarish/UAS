@@ -9,7 +9,8 @@
             <h3>List Of All Articles</h3>
             </div>
             </br></br>
-            <form action="/articles/create" method="post">
+            <form action="/articles/create" method="post"enctype="multipart/form-data">
+
             @csrf
                 <div class="form-group">
                     <label for="title">Judul</label>
@@ -21,7 +22,7 @@
                 </div>
                 <div class="form-group">
                     <label for="image">Featured Image</label>
-                    <input type="text" class="form-control" required="required" name="image"></br>
+                    <input type="file" class="form-control" required="required" name="image"></br>
                 </div>
                 <button type="submit" name="add" class="btn btn-primary float-right">Tambah Data</button>
             </form>     

@@ -37,6 +37,8 @@
         </table>
         
       </div>
+      </br>
+      <a href="/articles/cetak_pdf" class="btn btn-primary"target="_blank">CETAK PDF</a>
       </br></br></br>
       <a href="/manage2" class="btn btn-primary">Click To Show Editing Comment </a>
       </br></br>
