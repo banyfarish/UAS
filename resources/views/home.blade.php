@@ -1,118 +1,129 @@
 @extends('layout.master')
-  @section('content')
-      <!-- Page Content -->
-  <div class="container">
-  <br><br><br>
-<div class="row">
+@section('content')
+  <section id="banner" data-video="images/home1">
+					<div class="inner">
+						<header>
+							<h1>This is NIMOSHOP</h1>
+							<p>Cara tercepat dan termudah untuk pembelian kredit permainan</p>
+						</header>
+						<a href="#main" class="button big alt scrolly">Click Untuk Mengetahui Lebih</a>
+					</div>
 
-  <!-- Blog Entries Column -->
-  
-  
-  <div class="col-md-8">
-  <div class="card body">
-        @if (session('status'))
-            <div class="alern alern-success" role="alert">
-                {{ session('status')}}
+				</section>
+  <!-- Main -->
+  <div id="main">
+
+<!-- One -->
+
+  <section class="wrapper style1">
+    <div class="inner">
+      <header class="align-center">
+        <h2>Kategori Mobile Games</h2>
+        <p>Silahkan Click Gambar Untuk Melanjutkan Top-Up</p>
+      </header>
+
+      <!-- 2 Column Video Section -->
+      
+      <div class="flex-container">
+        <div class="flex flex-2 flex-item-left">
+        @foreach($kategori as $kat)
+          <div class="video col">
+            <div class="image fit">
+              <img src="storage/{{ $kat->featured_image }}" alt="" />
+              <div class="arrow">
+              </div>
             </div>
-        @endif
-
-        you are logged in!
-    </div>
-    
-    <h1 class="my-4">Karakter Pemain Tim Shohoku</h1>
-
-    @foreach($articlesAll as $art)
-    <!-- Blog Post -->
-    <div class="card mb-4">
-    <img class="card-img-top" src={{$art->featured_image}} width="750px" height="300px" alt="Card image cap">
-      <div class="card-body">
-        <h2 class="card-title">{{$art->title}}</h2>
-        <p class="card-text">{{ Str::limit($art->content, 100,'...') }}</p>
-        <a href="{{ '/articles/'.$art->id }}" class="btn btn-primary">Read More &rarr;</a>
+            <p class="caption">
+            {{ $kat->title }}
+            </p>
+            <a href="{{ '/kategori/'.$kat->id }}" class="link"><span>Click Me</span></a>
+          </div>
+        @endforeach
+        </div>
       </div>
-      <div class="card-footer text-muted">
-        Posted on January 1, 2020 by
-        <a href="#">Start Bootstrap</a>
-      </div>
+      
     </div>
-    @endforeach
+  </section>
+       
+ 
 
-    <!-- Pagination -->
-    <ul class="pagination justify-content-center mb-4">
-      <li class="page-item">
-        <a class="page-link" href="#">&larr; Older</a>
-      </li>
-      <li class="page-item disabled">
-        <a class="page-link" href="#">Newer &rarr;</a>
-      </li>
-    </ul>
+<!-- Two -->
+  <section class="wrapper style2">
+    <div class="inner">
+      <header>
+        <h2>pemilihan Kategori</h2>
+        <p>Game Mobile And Pc</p>
+      </header>
+      <!-- Tabbed Video Section -->
+        <div class="flex flex-tabs">
+          <ul class="tab-list">
+            <li><a href="#" data-tab="tab-1" class="active">Mobile Games</a></li>
+            <li><a href="#" data-tab="tab-2">PC Games</a></li>
+          </ul>
+          <div class="tabs">
 
-  </div>
+            <!-- Tab 1 -->
+            <div class="tab tab-1 flex right flex-3 active">
+            @foreach($kategoritab1 as $kat)
+                <!-- Video Thumbnail -->
+                  <div class="video col">
+                    <div class="image fit">
+                      <img src="storage/{{ $kat->featured_image }}" alt="" />
+                      <div class="arrow">
+                      </div>
+                    </div>
+                    <a href="{{ '/kategori/'.$kat->id }}" class="link"><span>Click Me</span></a>
+                  </div>
+              @endforeach
+            </div>
+            
 
-  <!-- Sidebar Widgets Column -->
-  <div class="col-md-4">
+            <!-- Tab 2 -->
+              <div class="tab tab-2 flex flex-3">
+              @foreach($kategoritab2 as $kat)
+                <!-- Video Thumbnail -->
+                  <div class="video col">
+                    <div class="image fit">
+                      <img src="storage/{{ $kat->featured_image }}" alt="" />
+                      <div class="arrow">
+                      </div>
+                    </div>
+                    <a href="{{ '/kategori/'.$kat->id }}" class="link"><span>Click Me</span></a>
+                  </div>
+                  @endforeach
+              </div>
+          </div>
+        </div>
+    </div>
+  </section>
 
-    <!-- Search Widget -->
-    <div class="card my-4">
-      <h5 class="card-header">Search</h5>
-      <div class="card-body">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for...">
-          <span class="input-group-append">
-            <button class="btn btn-secondary" type="button">Go!</button>
-          </span>
+<!-- Three -->
+  <section class="wrapper ">
+    <div class="inner">
+      <header class="align-center">
+        <h2>Kategori Pc Games</h2>
+        <p>Silahkan Click Gambar Untuk Melanjutkan Top-Up</p>
+      </header>
+
+      <!-- 3 Column Video Section -->
+      <div class="flex-container">
+        <div class="flex flex-3 flex-item-left">
+        @foreach($kategoripc as $kat)
+          <div class="video col">
+            <div class="image fit">
+              <img src="storage/{{ $kat->featured_image }}" alt="" />
+              <div class="arrow">
+                <div class="icon fa-play"></div>
+              </div>
+            </div>
+            <p class="caption">
+            {{ $kat->title }}
+            </p>
+            <a href="{{ '/kategori/'.$kat->id }}" class="link"><span>Click Me</span></a>
+          </div>
+        @endforeach
         </div>
       </div>
     </div>
-
-    <!-- Categories Widget -->
-    <div class="card my-4">
-      <h5 class="card-header">Categories</h5>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-lg-6">
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#">Kainan</a>
-              </li>
-              <li>
-                <a href="#">Shoyo</a>
-              </li>
-              <li>
-                <a href="#">Meihou</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-lg-6">
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#">Ryounan</a>
-              </li>
-              <li>
-                <a href="#">Sannoh</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Side Widget -->
-    <div class="card my-4">
-      <h5 class="card-header">Slam Dunk</h5>
-      <div class="card-body">
-      The manga and anime series Slam Dunk features a cast of 
-      fictional characters created by Takehiko Inoue. The series 
-      takes place in Japan, with the main characters being high school 
-      basketball players from Kanagawa Prefecture.
-      </div>
-    </div>
-
-  </div>
-
-</div>
-<!-- /.row -->
-
-</div>
-<!-- /.container -->
+  </section>
   @endsection

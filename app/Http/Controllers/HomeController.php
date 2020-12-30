@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Articles;
+use App\kategori;
+use App\komentar;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Cache;
 
@@ -26,11 +27,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $articlesAll = articles::All();
-        $articles= json_decode(json_encode($articlesAll));
-        return view('home')->with(compact('articlesAll'));
-            Cache::remember('articles', 5, function(){
-                return Articles::all();
+        $kategori = kategori::paginate(2);
+        $kategoritab1 = kategori::where('id', '<' , 6)->get();
+        $kategoritab2 = kategori::where('id', '>' , 5)->get();
+        $kategoripc = kategori::where('id', '>' , 5)->get();
+        // $kategoris= json_decode(json_encode(kategorisAll));
+        return view('home')->with(compact('kategoritab1','kategoritab2', 'kategori','kategoripc'));
+            Cache::remember('kategoris', 10, function(){
+    
+                Gate::define('user-display', function($user){
+                    return $user->roles == "User";
+                   });
+                   
     
         });        
     }

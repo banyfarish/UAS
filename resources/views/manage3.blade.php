@@ -35,7 +35,7 @@
                 @endforeach
             </tbody>
         </table>
-
+        <a href="/komentar/cetak_pdf" class="btn btn-primary"target="_blank">CETAK PDF USERS</a>
         </div>
     </div>
 </div>

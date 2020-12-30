@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'roles',
+        'name', 'email','id_game', 'image', 'password', 'roles',
     ];
 
     /**
@@ -36,4 +36,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function payments()
+    {
+        return $this->belongsTo('App\payment', 'payment')->select('id', 'metode_pembayaran');
+    }
+    public function diamonds()
+    {
+        return $this->belongsTo('App\topup', 'diamond')->select('id', 'jumlah_diamond');
+    }
 }

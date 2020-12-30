@@ -13,34 +13,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', 'HomeController@home');
-//Route::get('/about','AboutController@about' );
-//Route::get('articles/{id}','ArticlesControllerr@articles{id}');
-
 Route::get('', 'HomeController@index')->name('home');
-Route::get('/about', 'AboutController@about');
-//route::get('/articles/{id}','ArticlesController');
-Route::get('/contact', 'ContactController@contact'); 
+Route::get('/kategori/{id}', 'kategoriController');
+
 Auth::routes();
+Route::get('/logout' ,function(){
+	$logout=Auth::logout();
+	return view('auth.login');
+});
 
-Route::get('/manage', 'ArticlesController@index')->name('manage');
-Route::get('/manage2', 'komentarController@index')->name('manage2');
-Route::get('/manage3', 'userController@index')->name('manage3');
+Route::post('/updateid', 'kategoriController@updateid');
 
-Route::get('/articles/add', 'ArticlesController@add');
-Route::get('/komentar/add2', 'komentarController@add2');
-Route::get('/user/add3', 'userController@add3');
-Route::post('/articles/create', 'ArticlesController@create');
-Route::post('/komentar/create2', 'komentarController@create2');
-Route::post('/user/create3', 'userController@create3');
-Route::get('/articles/edit/{id}', 'ArticlesController@edit');
-Route::get('/komentar/edit2/{id}', 'komentarController@edit2');
-Route::get('/user/edit3/{id}', 'userController@edit3');
-Route::post('/articles/update/{id}','ArticlesController@update');
-Route::post('/komentar/update2/{id}', 'komentarController@update2');
-Route::post('/user/update3/{id}', 'userController@update3');
-Route::get('/articles/delete/{id}','ArticlesController@delete');
-Route::get('/komentar/delete2/{id}', 'komentarController@delete2');
+Route::get('/manage', 'manageController@index')->name('manage');
+
+Route::get('/kategoris/add', 'manageController@add');
+Route::get('/komentar/add', 'komentarController@add');
+Route::get('/user/add', 'userController@add');
+
+Route::post('/kategoris/create', 'manageController@create');
+Route::post('/komentar/create', 'komentarController@create');
+Route::post('/user/create', 'userController@create');
+
+Route::get('/kategoris/edit/{id}', 'manageController@edit');
+Route::get('/komentar/edit/{id}', 'komentarController@edit');
+Route::get('/user/edit/{id}', 'userController@edit');
+
+Route::post('/kategoris/update/{id}','manageController@update');
+Route::post('/komentar/update/{id}','komentarController@update');
+Route::post('/user/update/{id}','userController@update');
+
+Route::get('/kategoris/delete/{id}','manageController@delete');
+Route::get('/komentar/delete/{id}','komentarController@delete');
 Route::get('/user/delete3/{id}', 'userController@delete3');
 
-Route::get('/articles/cetak_pdf', 'ArticlesController@cetak_pdf');
+Route::get('/kategoris/cetak_pdf', 'manageController@cetak_pdf');
+Route::get('/komentar/cetak_pdf', 'komentarController@cetak_pdf');
+Route::get('/user/cetak_pdf', 'userController@cetak_pdf');

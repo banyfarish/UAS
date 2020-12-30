@@ -31,7 +31,9 @@ class LoginController extends Controller
             'Administrator' => 'manage',
             'User' => 'home',
         ];
+        
             return $this->redirectTo = route($for[auth()->user()->roles]);
+            // return redirect()->route($for[auth()->user()->roles]);
            
     }
     /**
